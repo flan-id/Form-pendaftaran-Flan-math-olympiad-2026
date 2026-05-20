@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FORM PENDAFTARAN | FLAN MATHEMATIC OLYMPIAD</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3ff;
+    overflow-x:hidden;
+}
+
+/* =========================
+LOADING
+========================= */
+
+#loading{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:linear-gradient(135deg,#031d58,#0d47c7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:999999;
+}
+
+#loading img{
+    width:140px;
+    animation:float 2s infinite ease-in-out;
+}
+
+#loading h1{
+    color:white;
+    margin-top:20px;
+    letter-spacing:2px;
+    font-size:32px;
+}
+
+#loading p{
+    color:#d9e4ff;
+    margin-top:10px;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* =========================
+CONTAINER
+========================= */
+
+.container{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+/* =========================
+POSTER
+========================= */
+
+.poster{
+    margin-top:25px;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 10px 40px rgba(0,0,0,0.1);
+}
+
+.poster img{
+    width:100%;
+    display:block;
+}
+
+/* =========================
+INFO BOX
+========================= */
+
+.info-box{
+    margin-top:30px;
+    background:white;
+    padding:35px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.info-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.info-header h1{
+    color:#082567;
+    font-size:35px;
+    font-weight:800;
+}
+
+.info-header p{
+    color:#777;
+    margin-top:10px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.info-card{
+    background:#f8fbff;
+    border:2px solid #edf2ff;
+    border-radius:22px;
+    padding:22px;
+    transition:0.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.info-card h3{
+    color:#082567;
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+.info-card ul{
+    padding-left:20px;
+    color:#555;
+    line-height:1.9;
+}
+
+.warning-box{
+    margin-top:25px;
+    background:linear-gradient(135deg,#fff7d9,#fff1b0);
+    border-left:6px solid #f2c94c;
+    padding:18px;
+    border-radius:18px;
+    color:#444;
+    font-weight:500;
+}
+
+/* =========================
+FORM
+========================= */
+
+.form-container{
+    margin-top:35px;
+    background:white;
+    padding:35px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.form-title h2{
+    color:#082567;
+    font-size:32px;
+    font-weight:800;
+}
+
+.form-title p{
+    margin-top:10px;
+    color:#777;
+}
+
+.input-group{
+    margin-bottom:22px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#082567;
+    font-weight:600;
+}
+
+.input-group input,
+.input-group select{
+
+    width:100%;
+    padding:16px;
+    border-radius:16px;
+    border:2px solid #dbe5ff;
+    outline:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+
+    border-color:#f2c94c;
+    box-shadow:0 0 10px rgba(242,201,76,0.3);
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(135deg,#082567,#0d47c7);
+    color:white;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================
+FORMAT BOX
+========================= */
+
+.format-box{
+    margin-top:35px;
+    background:linear-gradient(135deg,#082567,#0d47c7);
+    padding:35px;
+    border-radius:30px;
+    color:white;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.format-box h2{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.format-box ul{
+    padding-left:20px;
+    line-height:2;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#555;
+}
+
+footer h3{
+    color:#082567;
+    margin-bottom:10px;
+}
+
+footer p{
+    margin-top:8px;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .info-box,
+    .form-container,
+    .format-box{
+        padding:22px;
+    }
+
+    .info-header h1{
+        font-size:28px;
+    }
+
+    .form-title h2{
+        font-size:26px;
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- =========================
+LOADING
+========================= -->
+
+<div id="loading">
+
+        <img src="loading.png">
+
+    <h1>FLAN OLYMPIAD</h1>
+
+    <p>Preparing Registration System...</p>
+
+
+
+    <p>part OF:</p>
+    <p>PT GILANG AKSARACENDEKIA</p>
+</div>
+
+<!-- =========================
+MAIN CONTAINER
+========================= -->
+
+<div class="container">
+
+    <!-- POSTER -->
+
+    <div class="poster">
+
+        <img src="Poster.png">
+
+    </div>
+
+    <!-- INFORMATION -->
+    <div class="format-box">
+
+        <h2>📌 Format Your Information</h2>
+
+        <ul>
+
+            <li>
+                Gunakan nama resmi sesuai ijazah
+            </li>
+
+            <li>
+                Pastikan nomor WhatsApp aktif
+            </li>
+
+            <li>
+                Username & password dibuat otomatis
+            </li>
+
+            <li>
+                Simpan akun CBT (username & pasword) dengan baik
+            </li>
+
+            <li>
+                Wajib masuk grup WhatsApp peserta
+            </li>
+
+            <li>
+                Website aman digunakan di HP
+            </li>
+
+        </ul>
+
+    </div>
+    
+    <!-- Registrasi --!>
+    <!-- FORM -->
+
+    <div class="form-container">
+
+        <div class="form-title">
+
+            <h2>FLAN MATHEMATIC OLYMPIAD</h2>
+
+            <p>
+                Sistem Pendaftaran Nasional • 2026
+            </p>
+
+        </div>
+    
+        <form id="registerForm">
+
+            <!-- NAMA -->
+
+            <div class="input-group">
+
+                <label>
+                    Nama Lengkap Sesuai Ijazah
+                </label>
+
+                <input
+                type="text"
+                id="nama"
+                placeholder="Contoh : GILANG FAJAR RAMDANI"
+                required>
+
+            </div>
+
+            <!-- WHATSAPP -->
+
+            <div class="input-group">
+
+                <label>
+                    Nomor WhatsApp Aktif
+                </label>
+
+                <input
+                type="tel"
+                id="wa"
+                placeholder="08xxxxxxxxxx"
+                required>
+
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label>
+                    E-Mail Aktif
+                </label>
+
+                <input
+                type="email"
+                id="email"
+                placeholder="example@gmail.com"
+                required>
+
+            </div>
+
+            <!-- SEKOLAH -->
+
+            <div class="input-group">
+
+                <label>
+                    Asal Sekolah
+                </label>
+
+                <input
+                type="text"
+                id="sekolah"
+                placeholder="Contoh : SMP Negeri 1 Bandung"
+                required>
+
+            </div>
+
+            <!-- PROVINSI -->
+
+            <div class="input-group">
+
+                <label>
+                    Provinsi Asal
+                </label>
+
+                <select id="provinsi" required>
+
+                    <option value="">
+                        -- Pilih Provinsi --
+                    </option>
+
+                    <option>DKI Jakarta</option>
+                    <option>Jawa Barat</option>
+                    <option>Jawa Tengah</option>
+                    <option>Jawa Timur</option>
+                    <option>Banten</option>
+                    <option>DI Yogyakarta</option>
+                    <option>Bali</option>
+                    <option>Sumatera Utara</option>
+                    <option>Sumatera Barat</option>
+                    <option>Sumatera Selatan</option>
+                    <option>Kalimantan Barat</option>
+                    <option>Kalimantan Timur</option>
+                    <option>Kalimantan Selatan</option>
+                    <option>Sulawesi Selatan</option>
+                    <option>Sulawesi Utara</option>
+                    <option>Papua</option>
+                  <option>Provinsi Lainya yang berada di wilayah NKRI</option>  
+                  <option>Luar wilayah NKRI</option>
+
+                </select>
+
+            </div>
+
+            <!-- KABUPATEN -->
+
+            <div class="input-group">
+
+                <label>
+                    Kabupaten / Kota
+                </label>
+
+                <input
+                type="text"
+                id="kabupaten"
+                placeholder="Contoh : Kabupaten Bandung"
+                required>
+
+            </div>
+
+            <!-- LEVEL -->
+
+            <div class="input-group">
+
+                <label>
+                    Pilih Level Olimpiade
+                </label>
+
+                <select id="level" required>
+
+                    <option value="">
+                        -- Pilih Level --
+                    </option>
+
+                    <option>
+                        Level 1 - Young Explorer (Kelas 1-3 SD)
+                    </option>
+
+                    <option>
+                        Level 2 - Rising Thinker (Kelas 4-6 SD)
+                    </option>
+
+                    <option>
+                        Level 3 - Junior Challenger (Kelas 7-8 SMP)
+                    </option>
+
+                    <option>
+                        Level 4 - Advanced Challenger (Kelas 9 SMP)
+                    </option>
+
+                    <option>
+                        Level 5 - Senior Competitor (Kelas 10-11 SMA)
+                    </option>
+
+                    <option>
+                        Level 6 - Elite Olympian (Kelas 12 SMA)
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- SUBMIT -->
+
+            <button type="submit" class="btn">
+
+                🚀 DAFTAR SEKARANG
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- FORMAT -->
+
+    <div class="info-box">
+
+        <div class="info-header">
+
+            <h1>📢 FOR YOUR INFORMATION</h1>
+
+            <p>
+                FLAN MATHEMATIC OLYMPIAD
+            </p>
+
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h3>📝 Petunjuk Pendaftaran</h3>
+
+                <ul>
+                    <li>Isi seluruh data dengan benar</li>
+                    <li>Gunakan nama sesuai ijazah</li>
+                    <li>Nomor WhatsApp wajib aktif</li>
+                    <li>Email wajib valid</li>
+                    <li>Pilih level sesuai jenjang</li>
+                </ul>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>🔐 Data Akun CBT</h3>
+
+                <ul>
+                    <li>Username otomatis dibuat</li>
+                    <li>Password otomatis dibuat</li>
+                    <li>Digunakan login CBT</li>
+                    <li>Simpan akun dengan baik</li>
+                </ul>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>📚 Informasi Olimpiade</h3>
+
+                <ul>
+                    <li>Kisi-kisi H-7 ujian</li>
+                    <li>Twibbon di grup peserta</li>
+                    <li>Teknis ujian di grup</li>
+                    <li>Wajib join grup WhatsApp</li>
+                </ul>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>🏆 HADIAH UTAMA</h3>
+                <ul>
+                    <li>💸 Tabungan Pendidikan s.d Rp5.000.000</li>
+                    <li>💎Beasiswa pendidikan</li>
+                    <lli🎁Merchandise</li>
+                    <li>🥇Mendali</li>
+                    <Li>🏆Plakat & Piala Penghargaan</Li>
+                    <LLi🎗DLL</Li>
+                </ul>
+
+            </div>
+            
+       
+
+        </div>
+
+        <div class="warning-box">
+
+            ⚠️ Setelah melakukan pendaftaran, peserta WAJIB menyimpan username dan password karena digunakan untuk login CBT.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            FLAN OLYMPIAD
+        </h3>
+
+        <p>
+            Part Of PT Gilang Aksara Cendekia
+        </p>
+
+        <p>
+            Copyright © 2026
+        </p>
+
+    </footer>
+
+</div>
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+LOADING
+========================= */
+
+window.onload = () => {
+
+    setTimeout(() => {
+
+        document.getElementById("loading")
+        .style.display = "none";
+
+    },3000);
+
+}
+
+/* =========================
+FORM SUBMIT
+========================= */
+
+document.getElementById("registerForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let nama =
+    document.getElementById("nama")
+    .value.toUpperCase();
+
+    let wa =
+    document.getElementById("wa").value;
+
+    let email =
+    document.getElementById("email").value;
+
+    let sekolah =
+    document.getElementById("sekolah").value;
+
+    let provinsi =
+    document.getElementById("provinsi").value;
+
+    let kabupaten =
+    document.getElementById("kabupaten").value;
+
+    let level =
+    document.getElementById("level").value;
+
+    /* VALIDASI WA */
+
+    if(wa.length < 10){
+
+        alert("Nomor WhatsApp tidak valid!");
+
+        return;
+
+    }
+
+    /* VALIDASI EMAIL */
+
+    let emailPattern =
+    /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!email.match(emailPattern)){
+
+        alert("Format email tidak valid!");
+
+        return;
+
+    }
+
+    /* GENERATE USERNAME PASSWORD */
+
+    let randomNumber =
+    Math.floor(100000000 + Math.random() * 900000000);
+
+    let username = randomNumber;
+
+    let password = randomNumber;
+
+    /* FORMAT PESAN */
+
+    let message =
+`Halo, kak Fajar 👋. saya sudah melakukan pendaftaran pada *FLAN MATHEMATICOLYMPIAD*
+
+*⚠PERINGATAN⚠*
+HARAP KIRIM PESAN INI!JIKA DIHAPUS MAKA STATUS KEPESERTAAN GUGUR
+
+Berikut data saya:
+
+👤 Nama : ${nama}
+🏫 Asal Sekolah : ${sekolah}
+🌍 Provinsi : ${provinsi}
+🏙 Kabupaten/Kota : ${kabupaten}
+📘 Bidang Studi : MATEMATIKA
+🏆 Level : ${level}
+📩 E-Mail : ${email}
+
+📝 Data Ujian :
+✅ Username : ${username}
+✅ Password : ${password}
+
+*Username dan password JANGAN SAMPAI HILANG karena digunakan untuk masuk ke kelas ujian CBT*
+
+*Kisi-kisi ujian akan dibagikan di grup WhatsApp peserta H-7 ujian*
+
+*WAJIB MASUK KE GRUP WHATSAPP⬇️⬇️⬇️*
+https://chat.whatsapp.com/KoFznZcwAdo4k6Clp06wo1?s=cl&p=a&mlu=0
+
+*WAJIB MENGIKUTI/FOLLOW INSTAGRAM PENYELENGGARA*
+@flan.idn dan @olympiad.flan
+
+🤩 *SELAMAT BERJUANG PARA PELAJAR BERPRESTASI* 🤩`;
+
+    /* NOMOR ADMIN */
+
+    let nomorAdmin = "6283832328009";
+
+    /* REDIRECT WA */
+
+    let url =
+    `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(message)}`;
+
+    window.open(url,'_blank');
+
+});
+
+</script>
+
+</body>
+</html>
